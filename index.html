@@ -17,16 +17,16 @@
   	      <h1 class="display-1 ma-2 primary--text">John Smith</h1>
   	      <span class="display-1 mb-5 font-weight-light title">Back-end Developer</span>
   	      <div class="ma-2">
-  	      	<v-btn class="text-capitalize subheading font-weight-light" flat>About Me</v-btn>
+  	      	<v-btn @click="scroll('about-me')" class="text-capitalize subheading font-weight-light" flat>About Me</v-btn>
   	      </div>
   	      <div class="ma-2">
-  	      	<v-btn class="text-capitalize subheading font-weight-light" flat>Experience</v-btn>
+  	      	<v-btn @click="scroll('experience')" class="text-capitalize subheading font-weight-light" flat>Experience</v-btn>
   	      </div>
   	      <div class="ma-2">
-  	      	<v-btn class="text-capitalize subheading font-weight-light" flat>Skills & Education</v-btn>
+  	      	<v-btn @click="scroll('skills')" class="text-capitalize subheading font-weight-light" flat>Skills & Education</v-btn>
   	      </div>
   	      <div class="ma-2">
-  	      	<v-btn class="text-capitalize subheading font-weight-light" flat>Portfolio</v-btn>
+  	      	<v-btn @click="scroll('portfolio')" class="text-capitalize subheading font-weight-light" flat>Portfolio</v-btn>
   	      </div>
   	      <div class="ma-2">
   	      	<v-btn class="text-capitalize subheading font-weight-light" flat>Contact</v-btn>
@@ -504,6 +504,14 @@ new Vue({
 	  	len: 5,
 	  }
 	},
+
+	methods: {
+		scroll(id){
+			document.getElementById(id).scrollIntoView({
+			  behavior: 'smooth'
+			})
+		},
+	}
 })
 </script>
 </body>
