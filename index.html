@@ -143,61 +143,16 @@
   	  	  	  	  <h3 class="headline font-weigth-medium mb-4 primary--text">
   	  	  	  	    My Education
   	  	  	  	  </h3>
-  	  	  	  	  <v-sheet class="mb-5 transparent">
+  	  	  	  	  <v-sheet class="mb-5 transparent" v-for="(item, i) in education" :key="i">
   	  	  	  	    <v-layout>
   	  	  	  	      <div class="mr-3 v-sheet v-sheet--tile theme--dark primary" style="height: 100px; width: 1px;"></div>
   	  	  	  	      <v-flex>
-  	  	  	  	        <div class="mb-3"> State Univeristy</div>
+  	  	  	  	        <div class="mb-3">{{ item.school }}</div>
   	  	  	  	        <div class="text-xs-right">
-  	  	  	  	          <span class="title primary--text">Bachelor of Computer Science</span>
+  	  	  	  	          <span class="title primary--text">{{ item.degree }}</span>
   	  	  	  	          <footer>
-  	  	  	  	          	<div>Computer Science</div>
-  	  	  	  	          	<div>2013-2017</div>
-  	  	  	  	          </footer>
-  	  	  	  	        </div>
-  	  	  	  	      </v-flex>
-  	  	  	  	    </v-layout>
-  	  	  	  	  </v-sheet>
-  	  	  	  	  <v-sheet class="mb-5 transparent">
-  	  	  	  	    <v-layout>
-  	  	  	  	      <div class="mr-3 v-sheet v-sheet--tile theme--dark primary" style="height: 100px; width: 1px;"></div>
-  	  	  	  	      <v-flex>
-  	  	  	  	        <div class="mb-3"> State Univeristy</div>
-  	  	  	  	        <div class="text-xs-right">
-  	  	  	  	          <span class="title primary--text">Bachelor of Computer Science</span>
-  	  	  	  	          <footer>
-  	  	  	  	          	<div>Computer Science</div>
-  	  	  	  	          	<div>2013-2017</div>
-  	  	  	  	          </footer>
-  	  	  	  	        </div>
-  	  	  	  	      </v-flex>
-  	  	  	  	    </v-layout>
-  	  	  	  	  </v-sheet>
-  	  	  	  	  <v-sheet class="mb-5 transparent">
-  	  	  	  	    <v-layout>
-  	  	  	  	      <div class="mr-3 v-sheet v-sheet--tile theme--dark primary" style="height: 100px; width: 1px;"></div>
-  	  	  	  	      <v-flex>
-  	  	  	  	        <div class="mb-3">Community College</div>
-  	  	  	  	        <div class="text-xs-right">
-  	  	  	  	          <span class="title primary--text">Community College</span>
-  	  	  	  	          <footer>
-  	  	  	  	          	<div>Community College</div>
-  	  	  	  	          	<div>2012-2013</div>
-  	  	  	  	          </footer>
-  	  	  	  	        </div>
-  	  	  	  	      </v-flex>
-  	  	  	  	    </v-layout>
-  	  	  	  	  </v-sheet>
-  	  	  	  	  <v-sheet class="mb-5 transparent">
-  	  	  	  	    <v-layout>
-  	  	  	  	      <div class="mr-3 v-sheet v-sheet--tile theme--dark primary" style="height: 100px; width: 1px;"></div>
-  	  	  	  	      <v-flex>
-  	  	  	  	        <div class="mb-3">Community College</div>
-  	  	  	  	        <div class="text-xs-right">
-  	  	  	  	          <span class="title primary--text">Associate of Science</span>
-  	  	  	  	          <footer>
-  	  	  	  	          	<div>Graphic Design</div>
-  	  	  	  	          	<div>2010-2012</div>
+  	  	  	  	          	<div>{{ item.program }}</div>
+  	  	  	  	          	<div>{{ item.year }}</div>
   	  	  	  	          </footer>
   	  	  	  	        </div>
   	  	  	  	      </v-flex>
@@ -211,78 +166,18 @@
   	  	  	  	  <div class="mb-4">
   	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Graphics/Media</h4>
   	  	  	  	  	<div class="pl-4">
-  	  	  	  	  	  <v-layout align-center class="mb-2">
+  	  	  	  	  	  <v-layout 
+  	  	  	  	  	  v-for="(item, i) in skills"
+  	  	  	  	  	  :key="i"
+  	  	  	  	  	  align-center
+  	  	  	  	  	  class="mb-2">
   	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">Photoshop</h5>
+  	  	  	  	  	      <h5 class="subheading">{{ item.software }}</h5>
   	  	  	  	  	    </v-flex>
   	  	  	  	  	    <v-flex xs8>
   	  	  	  	  	      <v-rating
 					      :length="len"
-  	  	  	  	  	      v-model="rating"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	  <v-layout align-center class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">Illustrator</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
-  	  	  	  	  	      <v-rating
-					      :length="len"
-  	  	  	  	  	      v-model="rating"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	  <v-layout align-center class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">Fireworks</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
-  	  	  	  	  	      <v-rating
-					      :length="len"
-  	  	  	  	  	      v-model="rating"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	  <v-layout align-center class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">InDesign</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
-  	  	  	  	  	      <v-rating
-					      :length="len"
-  	  	  	  	  	      v-model="rating"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	  <v-layout align-center class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">Effects</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
-  	  	  	  	  	      <v-rating
-					      :length="len"
-  	  	  	  	  	      v-model="rating"
+  	  	  	  	  	      v-model="item.knowledge"
 					      >
 					      	<v-icon
 					      	slot="item"
@@ -296,62 +191,18 @@
   	  	  	  	  <div class="mb-4">
   	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Programming</h4>
   	  	  	  	  	<div class="pl-4">
-  	  	  	  	  	  <v-layout align-center class="mb-2">
+  	  	  	  	  	  <v-layout 
+  	  	  	  	  	  v-for="(item, i) in skills_1"
+  	  	  	  	  	  :key="i"
+  	  	  	  	  	  align-center 
+  	  	  	  	  	  class="mb-2">
   	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">Javascript</h5>
+  	  	  	  	  	      <h5 class="subheading">{{ item.language }}</h5>
   	  	  	  	  	    </v-flex>
   	  	  	  	  	    <v-flex xs8>
   	  	  	  	  	      <v-rating
 					      :length="len"
-  	  	  	  	  	      v-model="rating"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	  <v-layout align-center class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">PHP/MYSQL</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
-  	  	  	  	  	      <v-rating
-					      :length="len"
-  	  	  	  	  	      v-model="rating"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	  <v-layout align-center class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">jQuery</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
-  	  	  	  	  	      <v-rating
-					      :length="len"
-  	  	  	  	  	      v-model="rating"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	  <v-layout align-center class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">HTML5/CSS3</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
-  	  	  	  	  	      <v-rating
-					      :length="len"
-  	  	  	  	  	      v-model="rating"
+  	  	  	  	  	      v-model="item.knowledge"
 					      >
 					      	<v-icon
 					      	slot="item"
@@ -365,62 +216,18 @@
   	  	  	  	  <div class="mb-4">
   	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Other</h4>
   	  	  	  	  	<div class="pl-4">
-  	  	  	  	  	  <v-layout align-center class="mb-2">
+  	  	  	  	  	  <v-layout
+  	  	  	  	  	  v-for="(item, i) in skills_2"
+  	  	  	  	  	  :key="i" 
+  	  	  	  	  	  align-center 
+  	  	  	  	  	  class="mb-2">
   	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">Graphic Design</h5>
+  	  	  	  	  	      <h5 class="subheading">{{ item.name }}</h5>
   	  	  	  	  	    </v-flex>
   	  	  	  	  	    <v-flex xs8>
   	  	  	  	  	      <v-rating
 					      :length="len"
-  	  	  	  	  	      v-model="rating"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	  <v-layout align-center class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">Marketing</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
-  	  	  	  	  	      <v-rating
-					      :length="len"
-  	  	  	  	  	      v-model="rating"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	  <v-layout align-center class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">Web Design</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
-  	  	  	  	  	      <v-rating
-					      :length="len"
-  	  	  	  	  	      v-model="rating"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	  <v-layout align-center class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
-  	  	  	  	  	      <h5 class="subheading">Logo Design</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
-  	  	  	  	  	      <v-rating
-					      :length="len"
-  	  	  	  	  	      v-model="rating"
+  	  	  	  	  	      v-model="item.knowledge"
 					      >
 					      	<v-icon
 					      	slot="item"
@@ -436,12 +243,19 @@
   	  	  	  <section id="portfolio" class="layout pa-5 wrap" style="position: relative;">
   	  	  	  	<v-img class="abstract-3" style="height: 100%; width: 100%;" src="assets/abstract3.png"></v-img>
   	  	  	  	<h2 class="display-2 font-weight-bold primary--text mb-4">What I've done</h2>
-  	  	  	  	<v-carousel hide-controls class="elevation-0" style="height: 600px">
+  	  	  	  	<v-carousel
+  	  	  	  	v-for="(item, i) in projects"
+  	  	  	  	:key="i"
+  	  	  	  	hide-controls 
+  	  	  	  	class="elevation-0" 
+  	  	  	  	style="height: 600px">
   	  	  	  	  <v-carousel-item>
   	  	  	  	  	<v-sheet class="transparent pa-5" style="height: 100%;">
   	  	  	  	  	  <div class="text-xs-center mb-5">
-  	  	  	  	  	  	<h2 class="primary--text title font-weight-light mb-1">Classic Cafe Rebrand</h2>
-  	  	  	  	  	  	<span class="subheading">Logo Design</span>
+  	  	  	  	  	  	<h2 class="primary--text title font-weight-light mb-1">
+  	  	  	  	  	  	  {{ item.name }}
+  	  	  	  	  	  	</h2>
+  	  	  	  	  	  	<span class="subheading">{{ item.category }}</span>
   	  	  	  	  	  </div>
   	  	  	  	  	  <v-layout wrap>
   	  	  	  	  	    <v-flex shrink>
@@ -450,7 +264,7 @@
   	  	  	  	  	      	  Project Details
   	  	  	  	  	      	</h2>
   	  	  	  	  	      	<div class="subheading mb-5">
-          						In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt.
+          					  {{ item.detail }}
   	  	  	  	  	      	</div>
   	  	  	  	  	      	<h2 class="primary--text title font-weight-light">
   	  	  	  	  	      	  Project Info
@@ -461,7 +275,7 @@
   	  	  	  	  	      	      <v-icon>person</v-icon>
   	  	  	  	  	      	    </v-list-tile-action>
   	  	  	  	  	      	    <v-list-tile-title class="mr-2">Client Name</v-list-tile-title>
-  	  	  	  	  	      	    <v-list-tile-sub-title class="hidden-sm-and-down">the clients name</v-list-tile-sub-title>
+  	  	  	  	  	      	    <v-list-tile-sub-title class="hidden-sm-and-down">{{ item.clients }}</v-list-tile-sub-title>
   	  	  	  	  	      	  </v-list-tile>
 
   	  	  	  	  	      	  <v-list-tile>
@@ -469,7 +283,7 @@
   	  	  	  	  	      	      <v-icon>calendar_today</v-icon>
   	  	  	  	  	      	    </v-list-tile-action>
   	  	  	  	  	      	    <v-list-tile-title class="mr-2">Project Dates</v-list-tile-title>
-  	  	  	  	  	      	    <v-list-tile-sub-title class="hidden-sm-and-down">date, date</v-list-tile-sub-title>
+  	  	  	  	  	      	    <v-list-tile-sub-title class="hidden-sm-and-down">{{ item.date }}</v-list-tile-sub-title>
   	  	  	  	  	      	  </v-list-tile>
 
   	  	  	  	  	      	  <v-list-tile>
@@ -477,7 +291,7 @@
   	  	  	  	  	      	      <v-icon>style</v-icon>
   	  	  	  	  	      	    </v-list-tile-action>
   	  	  	  	  	      	    <v-list-tile-title class="mr-2">Project Category</v-list-tile-title>
-  	  	  	  	  	      	    <v-list-tile-sub-title class="hidden-sm-and-down">category, category, category</v-list-tile-sub-title>
+  	  	  	  	  	      	    <v-list-tile-sub-title class="hidden-sm-and-down">{{ item.category }}</v-list-tile-sub-title>
   	  	  	  	  	      	  </v-list-tile>
   	  	  	  	  	      	</v-list>
   	  	  	  	  	      </div>
@@ -502,6 +316,104 @@ new Vue({
 	  return {
 	  	rating: 4,
 	  	len: 5,
+	  	education: [
+	  		{
+		  		school: "State Univeristy",
+		  		degree: "Bachelor of Computer Science",
+		  		program: "Computer Science",
+		  		year: "2013-2017"
+		  	},
+		  	{
+		  		school: "State Univeristy",
+		  		degree: "Bachelor of Computer Science",
+		  		program: "Computer Science",
+		  		year: "2013-2017"
+		  	},
+		  	{
+		  		school: "Community College",
+		  		degree: "Community College",
+		  		program: "Community College",
+		  		year: "2012-2013"
+		  	},
+		  	{
+		  		school: "Community College",
+		  		degree: "Associate of Science",
+		  		program: "Graphic Design",
+		  		year: "2010-2012"
+		  	},
+	  	],
+	  	skills: [
+	  		{
+	  			software: "Photoshop",
+	  			knowledge: 4
+	  		},
+	  		{
+	  			software: "Illustrator",
+	  			knowledge: 4
+	  		},
+	  		{
+	  			software: "Fireworks",
+	  			knowledge: 4
+	  		},
+	  		{
+	  			software: "InDesign",
+	  			knowledge: 4
+	  		},
+	  		{
+	  			software: "Effects",
+	  			knowledge: 4
+	  		},
+	  	],
+
+	  	skills_1: [
+	  		{
+	  			language: "Javascript" ,
+	  			knowledge: 4
+	  		},
+	  		{
+	  			language: "PHP/MYSQL" ,
+	  			knowledge: 4
+	  		},
+	  		{
+	  			language: "jQuery" ,
+	  			knowledge: 4
+	  		},
+	  		{
+	  			language: "HTML5/CSS3" ,
+	  			knowledge: 4
+	  		},
+	  	],
+
+	  	skills_2: [
+	  		{
+	  			name: "Graphic Design",
+	  			knowledge: 4,
+	  		},
+	  		{
+	  			name: "Marketing",
+	  			knowledge: 4,
+	  		},
+	  		{
+	  			name: "Web Design",
+	  			knowledge: 4,
+	  		},
+	  		{
+	  			name: "Logo Design",
+	  			knowledge: 4,
+	  		},
+	  	],
+
+	  	projects: [
+	  		{
+	  			name: "Classic Cafe Rebrand",
+	  			category: "Logo Design",
+	  			detail: "In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt",
+	  			clients: "the clients name",
+	  			date: "date, date",
+	  			category: "category, category, category"
+	  		}
+	  	]
+
 	  }
 	},
 
