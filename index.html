@@ -11,7 +11,7 @@
 
   <div id="app">
   	<v-app dark>
-  	  <v-navigation-drawer permanent fixed>
+  	  <v-navigation-drawer fixed app>
   	    <v-layout justify-center align-center wrap column>
   	      <div class="display-3 mt-4 font-weight-bold">JS</div>
   	      <h1 class="display-1 ma-2 primary--text">John Smith</h1>
@@ -46,12 +46,12 @@
 
 
 
-  	  	<v-content class="hide-overflow" style="padding: 0px 0px 0px 300px;">
+  	  	<v-content class="hide-overflow">
   	  	  <div>
   	  	  	<v-img 
   	  	  	height="100vh"
   	  	  	src="assets/hero.png">
-  	  	  	  <v-layout fill-height justify-end align-end class="text-sm-right pa-4">
+  	  	  	  <v-layout fill-height justify-end align-end class="text-sm-right pa-5">
   	  	  	    <div>
   	  	  	      <div class="display-3 text-uppercase">John Smith</div>
   	  	  	      <h1 class="primary--text text-uppercase display-4">Back-end Developer</h1>
@@ -171,11 +171,12 @@
   	  	  	  	  	  :key="i"
   	  	  	  	  	  align-center
   	  	  	  	  	  class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
+  	  	  	  	  	    <v-flex xs5>
   	  	  	  	  	      <h5 class="subheading">{{ item.software }}</h5>
   	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
+  	  	  	  	  	    <v-flex xs7>
   	  	  	  	  	      <v-rating
+  	  	  	  	  	      dense
 					      :length="len"
   	  	  	  	  	      v-model="item.knowledge"
 					      >
@@ -196,11 +197,12 @@
   	  	  	  	  	  :key="i"
   	  	  	  	  	  align-center 
   	  	  	  	  	  class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
+  	  	  	  	  	    <v-flex xs5>
   	  	  	  	  	      <h5 class="subheading">{{ item.language }}</h5>
   	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
+  	  	  	  	  	    <v-flex xs7>
   	  	  	  	  	      <v-rating
+  	  	  	  	  	      dense
 					      :length="len"
   	  	  	  	  	      v-model="item.knowledge"
 					      >
@@ -221,11 +223,12 @@
   	  	  	  	  	  :key="i" 
   	  	  	  	  	  align-center 
   	  	  	  	  	  class="mb-2">
-  	  	  	  	  	    <v-flex xs4>
+  	  	  	  	  	    <v-flex xs5>
   	  	  	  	  	      <h5 class="subheading">{{ item.name }}</h5>
   	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs8>
+  	  	  	  	  	    <v-flex xs7>
   	  	  	  	  	      <v-rating
+  	  	  	  	  	      dense
 					      :length="len"
   	  	  	  	  	      v-model="item.knowledge"
 					      >
@@ -291,7 +294,7 @@
   	  	  	  	  	      	      <v-icon>style</v-icon>
   	  	  	  	  	      	    </v-list-tile-action>
   	  	  	  	  	      	    <v-list-tile-title class="mr-2">Project Category</v-list-tile-title>
-  	  	  	  	  	      	    <v-list-tile-sub-title class="hidden-sm-and-down">{{ item.category }}</v-list-tile-sub-title>
+  	  	  	  	  	      	    <v-list-tile-sub-title class="hidden-sm-and-down">{{ item.categories }}</v-list-tile-sub-title>
   	  	  	  	  	      	  </v-list-tile>
   	  	  	  	  	      	</v-list>
   	  	  	  	  	      </div>
@@ -410,7 +413,7 @@ new Vue({
 	  			detail: "In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt",
 	  			clients: "the clients name",
 	  			date: "date, date",
-	  			category: "category, category, category"
+	  			categories: "category, category, category"
 	  		}
 	  	]
 
