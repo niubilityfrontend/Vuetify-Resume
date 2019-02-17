@@ -13,9 +13,9 @@
   	<v-app dark>
   	  <v-navigation-drawer fixed app>
   	    <v-layout justify-center align-center wrap column>
-  	      <div class="display-3 mt-4 font-weight-bold">JS</div>
-  	      <h1 class="display-1 ma-2 primary--text">John Smith</h1>
-  	      <span class="display-1 mb-5 font-weight-light title">Back-end Developer</span>
+  	      <h2 class="display-3 mt-4 primary--text font-weight-bold ">JS</h2>
+  	      <h1 class="display-1 ma-2">{{ developer.name }}</h1>
+  	      <span class="display-1 mb-5 font-weight-light title">{{ developer.specialist }}</span>
   	      <div class="ma-2">
   	      	<v-btn @click="scroll('about-me')" class="text-capitalize subheading font-weight-light" flat>About Me</v-btn>
   	      </div>
@@ -29,14 +29,14 @@
   	      	<v-btn @click="scroll('portfolio')" class="text-capitalize subheading font-weight-light" flat>Portfolio</v-btn>
   	      </div>
   	      <div class="ma-2">
-  	      	<v-btn class="text-capitalize subheading font-weight-light" flat>Contact</v-btn>
+  	      	<v-btn @click="scroll('about-me')" class="text-capitalize subheading font-weight-light" flat>Contact</v-btn>
   	      </div>
   	      <div class="mt-auto">
   	      	<div class="my-4">
-  	      	  <v-btn icon>
+  	      	  <v-btn icon href="https://github.com/ashkan90">
   	      	  	<v-icon>mdi mdi-github-box</v-icon>
   	      	  </v-btn>
-  	      	  <v-btn icon>
+  	      	  <v-btn icon href="https://www.linkedin.com/in/emirhan-ataman-7b4877166/">
   	      	  	<v-icon>mdi mdi-linkedin-box</v-icon>
   	      	  </v-btn>
   	      	</div>
@@ -53,8 +53,10 @@
   	  	  	src="assets/hero.png">
   	  	  	  <v-layout fill-height justify-end align-end class="text-sm-right pa-5">
   	  	  	    <div>
-  	  	  	      <div class="display-3 text-uppercase">John Smith</div>
-  	  	  	      <h1 class="primary--text text-uppercase display-4">Back-end Developer</h1>
+  	  	  	      <div class="display-3 text-uppercase">{{ developer.name }}</div>
+  	  	  	      <h1 class="primary--text text-uppercase display-4">
+                    {{ developer.specialist }}   
+                  </h1>
   	  	  	    </div>
   	  	  	  </v-layout>
   	  	  	</v-img>
@@ -68,7 +70,7 @@
   	  	  	  	  	  <v-flex xs12 md7>
   	  	  	  	  	    <div class="subheading mb-5 mb-0">
   	  	  	  	  	      <p>
-  	  	  	  	  	      	I am front-end developer that specializes in Vue and Veutify development. Consectetur adipisicing elit, sed do eiusmod tempor. Quisque viverra quam urna, ac commodo augue convallis et. In vel nisl imperdiet, cursus elit ac, efficitur sem. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum.
+  	  	  	  	  	      	{{ developer.bio }}
   	  	  	  	  	      </p>
   	  	  	  	  	      <div>
   	  	  	  	  	      	
@@ -84,10 +86,10 @@
   	  	  	  	  	        <div>Discord</div>
   	  	  	  	  	      </v-flex>
   	  	  	  	  	      <v-flex xs6 class="subheading no-wrap">
-  	  	  	  	  	        <div class="mb-3">Turkey</div>
-  	  	  	  	  	        <div class="mb-3">emirhan.1ataman@gmail.com</div>
-  	  	  	  	  	        <div class="mb-3">(90)544 266 6417</div>
-  	  	  	  	  	        <div>@OFFLINE GOD</div>
+  	  	  	  	  	        <div class="mb-3">{{ developer.location }}</div>
+  	  	  	  	  	        <div class="mb-3">{{ developer.mail }}</div>
+  	  	  	  	  	        <div class="mb-3">{{ developer.phone }}</div>
+  	  	  	  	  	        <div>{{ developer.discord }}</div>
   	  	  	  	  	      </v-flex>
   	  	  	  	  	    </v-layout>
   	  	  	  	  	  </v-flex>
@@ -113,13 +115,10 @@
   	  	  	  	  </section>
   	  	  	  	</v-flex>
   	  	  	  	<v-flex md5 class="hidden-sm-and-down text-xs-right text-uppercase">
-  	  	  	  	  <div class="display-1">Back-end Developer</div>
+  	  	  	  	  <div class="display-1">{{ developer.specialist }}</div>
   	  	  	  	  <span class="primary--text headline font-weight-light">
-  	  	  	  	  	John Smith
+  	  	  	  	  	{{ developer.name }}
   	  	  	  	  </span>
-  	  	  	  	  <v-img src="assets/john.2.png" style="height: 100%; margin-right: -48px;">
-  	  	  	  	  	
-  	  	  	  	  </v-img>
   	  	  	  	</v-flex>
   	  	  	  </section>
   	  	  	  <section id="skills" class="layout pa-5 wrap justify-space-around" style="position: relative;">
@@ -131,7 +130,7 @@
   	  	  	  	    </h2>
   	  	  	  	    <blockquote style="max-width: 230px;">
   	  	  	  	      <p class="subheading font-weight-light font-italic">
-  	  	  	  	      	I'm self-taught, self-motivated programmer. I've been contributioning my own clone-like projects.
+  	  	  	  	      	{{ developer.shortBio }}
   	  	  	  	      </p>
   	  	  	  	      <footer class="text-xs-center">
   	  	  	  	        <v-btn dark color="primary">DOWNLOAD CV</v-btn>
@@ -145,7 +144,9 @@
   	  	  	  	  </h3>
   	  	  	  	  <v-sheet class="mb-5 transparent" v-for="(item, i) in education" :key="i">
   	  	  	  	    <v-layout>
-  	  	  	  	      <div class="mr-3 v-sheet v-sheet--tile theme--dark primary" style="height: 100px; width: 1px;"></div>
+  	  	  	  	      <div 
+  	  	  	  	      class="mr-3 v-sheet v-sheet--tile theme--dark primary" 
+  	  	  	  	      style="height: 100px; width: 1px;"></div>
   	  	  	  	      <v-flex>
   	  	  	  	        <div class="mb-3">{{ item.school }}</div>
   	  	  	  	        <div class="text-xs-right">
@@ -177,14 +178,13 @@
   	  	  	  	  	    <v-flex xs7>
   	  	  	  	  	      <v-rating
   	  	  	  	  	      dense
-					      :length="len"
-  	  	  	  	  	      v-model="item.knowledge"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
+  	  	  	  	  	      :length="len"
+                          v-model="item.knowledge">
+  					      	<v-icon
+  					      	slot="item"
+  					      	slot-scope="props"
+  					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
+  					      </v-rating>
   	  	  	  	  	    </v-flex>
   	  	  	  	  	  </v-layout>
   	  	  	  	  	</div>
@@ -203,14 +203,13 @@
   	  	  	  	  	    <v-flex xs7>
   	  	  	  	  	      <v-rating
   	  	  	  	  	      dense
-					      :length="len"
-  	  	  	  	  	      v-model="item.knowledge"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
+  	  	  	  	  	      :length="len"
+                          v-model="item.knowledge">
+  					      	<v-icon
+  					      	slot="item"
+  					      	slot-scope="props"
+  					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
+  					      </v-rating>
   	  	  	  	  	    </v-flex>
   	  	  	  	  	  </v-layout>
   	  	  	  	  	</div>
@@ -229,22 +228,27 @@
   	  	  	  	  	    <v-flex xs7>
   	  	  	  	  	      <v-rating
   	  	  	  	  	      dense
-					      :length="len"
-  	  	  	  	  	      v-model="item.knowledge"
-					      >
-					      	<v-icon
-					      	slot="item"
-					      	slot-scope="props"
-					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-					      </v-rating>
+          				  :length="len"
+                          v-model="item.knowledge">
+  					      	<v-icon
+  					      	slot="item"
+  					      	slot-scope="props"
+  					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
+  					      </v-rating>
   	  	  	  	  	    </v-flex>
   	  	  	  	  	  </v-layout>
   	  	  	  	  	</div>
   	  	  	  	  </div>
   	  	  	  	</v-flex>
   	  	  	  </section>
-  	  	  	  <section id="portfolio" class="layout pa-5 wrap" style="position: relative;">
-  	  	  	  	<v-img class="abstract-3" style="height: 100%; width: 100%;" src="assets/abstract3.png"></v-img>
+  	  	  	  <section 
+  	  	  	  id="portfolio" 
+  	  	  	  class="layout pa-5 wrap" 
+  	  	  	  style="position: relative;">
+  	  	  	  	<v-img 
+  	  	  	  	class="abstract-3" 
+  	  	  	  	style="height: 100%; width: 100%;" 
+  	  	  	  	src="assets/abstract3.png"></v-img>
   	  	  	  	<h2 class="display-2 font-weight-bold primary--text mb-4">What I've done</h2>
   	  	  	  	<v-carousel
   	  	  	  	v-for="(item, i) in projects"
@@ -267,7 +271,7 @@
   	  	  	  	  	      	  Project Details
   	  	  	  	  	      	</h2>
   	  	  	  	  	      	<div class="subheading mb-5">
-          					  {{ item.detail }}
+        					           {{ item.detail }}
   	  	  	  	  	      	</div>
   	  	  	  	  	      	<h2 class="primary--text title font-weight-light">
   	  	  	  	  	      	  Project Info
@@ -313,153 +317,171 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
 <script>
-new Vue({
-	el: '#app',
-	data(){
-	  return {
-	  	rating: 4,
-	  	len: 5,
-	  	education: [
-	  		{
-		  		school: "State Univeristy",
-		  		degree: "Bachelor of Computer Science",
-		  		program: "Computer Science",
-		  		year: "2013-2017"
-		  	},
-		  	{
-		  		school: "State Univeristy",
-		  		degree: "Bachelor of Computer Science",
-		  		program: "Computer Science",
-		  		year: "2013-2017"
-		  	},
-		  	{
-		  		school: "Community College",
-		  		degree: "Community College",
-		  		program: "Community College",
-		  		year: "2012-2013"
-		  	},
-		  	{
-		  		school: "Community College",
-		  		degree: "Associate of Science",
-		  		program: "Graphic Design",
-		  		year: "2010-2012"
-		  	},
-	  	],
-	  	skills: [
-	  		{
-	  			software: "Photoshop",
-	  			knowledge: 4
-	  		},
-	  		{
-	  			software: "Illustrator",
-	  			knowledge: 4
-	  		},
-	  		{
-	  			software: "Fireworks",
-	  			knowledge: 4
-	  		},
-	  		{
-	  			software: "InDesign",
-	  			knowledge: 4
-	  		},
-	  		{
-	  			software: "Effects",
-	  			knowledge: 4
-	  		},
-	  	],
+  new Vue({
+  	el: '#app',
+  	data(){
+  	  return {
+  	  	rating: 4,
+  	  	len: 5,
+        developer: {
+          name: "Emirhan Ataman",
+          specialist: "Back-end Developer",
+          bio: "I am front-end developer that specializes in Vue and Veutify development. Consectetur adipisicing elit, sed do eiusmod tempor. Quisque viverra quam urna, ac commodo augue convallis et. In vel nisl imperdiet, cursus elit ac, efficitur sem. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum.",
+          shortBio: "I'm self-taught, self-motivated programmer. I've been contributioning my own clone-like projects.",
+          location: "Turkey",
+          phone: "(90) 532 321 3232",
+          discord: "@OFFLINE GOD",
+          mail: "emirhan@ataman.com"
+        },
+  	  	education: [
+  	  		{
+  		  		school: "State Univeristy",
+  		  		degree: "Bachelor of Computer Science",
+  		  		program: "Computer Science",
+  		  		year: "2013-2017"
+  		  	},
+  		  	{
+  		  		school: "State Univeristy",
+  		  		degree: "Bachelor of Computer Science",
+  		  		program: "Computer Science",
+  		  		year: "2013-2017"
+  		  	},
+  		  	{
+  		  		school: "Community College",
+  		  		degree: "Community College",
+  		  		program: "Community College",
+  		  		year: "2012-2013"
+  		  	},
+  		  	{
+  		  		school: "Community College",
+  		  		degree: "Associate of Science",
+  		  		program: "Graphic Design",
+  		  		year: "2010-2012"
+  		  	},
+  	  	],
+  	  	skills: [
+  	  		{
+  	  			software: "Photoshop",
+  	  			knowledge: 4
+  	  		},
+  	  		{
+  	  			software: "Illustrator",
+  	  			knowledge: 4
+  	  		},
+  	  		{
+  	  			software: "Fireworks",
+  	  			knowledge: 4
+  	  		},
+  	  		{
+  	  			software: "InDesign",
+  	  			knowledge: 4
+  	  		},
+  	  		{
+  	  			software: "Effects",
+  	  			knowledge: 4
+  	  		},
+  	  	],
 
-	  	skills_1: [
-	  		{
-	  			language: "Javascript" ,
-	  			knowledge: 4
-	  		},
-	  		{
-	  			language: "PHP/MYSQL" ,
-	  			knowledge: 4
-	  		},
-	  		{
-	  			language: "jQuery" ,
-	  			knowledge: 4
-	  		},
-	  		{
-	  			language: "HTML5/CSS3" ,
-	  			knowledge: 4
-	  		},
-	  	],
+  	  	skills_1: [
+  	  		{
+  	  			language: "Javascript" ,
+  	  			knowledge: 4
+  	  		},
+  	  		{
+  	  			language: "PHP/MYSQL" ,
+  	  			knowledge: 4
+  	  		},
+  	  		{
+  	  			language: "jQuery" ,
+  	  			knowledge: 4
+  	  		},
+  	  		{
+  	  			language: "HTML5/CSS3" ,
+  	  			knowledge: 4
+  	  		},
+  	  	],
 
-	  	skills_2: [
-	  		{
-	  			name: "Graphic Design",
-	  			knowledge: 4,
-	  		},
-	  		{
-	  			name: "Marketing",
-	  			knowledge: 4,
-	  		},
-	  		{
-	  			name: "Web Design",
-	  			knowledge: 4,
-	  		},
-	  		{
-	  			name: "Logo Design",
-	  			knowledge: 4,
-	  		},
-	  	],
+  	  	skills_2: [
+  	  		{
+  	  			name: "Graphic Design",
+  	  			knowledge: 4,
+  	  		},
+  	  		{
+  	  			name: "Marketing",
+  	  			knowledge: 4,
+  	  		},
+  	  		{
+  	  			name: "Web Design",
+  	  			knowledge: 4,
+  	  		},
+  	  		{
+  	  			name: "Logo Design",
+  	  			knowledge: 4,
+  	  		},
+  	  	],
 
-	  	projects: [
-	  		{
-	  			name: "Classic Cafe Rebrand",
-	  			category: "Logo Design",
-	  			detail: "In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt",
-	  			clients: "the clients name",
-	  			date: "date, date",
-	  			categories: "category, category, category"
-	  		}
-	  	]
+  	  	projects: [
+  	  		{
+  	  			name: "Classic Cafe Rebrand",
+  	  			category: "Logo Design",
+  	  			detail: "In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt",
+  	  			clients: "the clients name",
+  	  			date: "date, date",
+  	  			categories: "category, category, category"
+  	  		}
+  	  	]
 
-	  }
-	},
+  	  }
+  	},
 
-	methods: {
-		scroll(id){
-			document.getElementById(id).scrollIntoView({
-			  behavior: 'smooth'
-			})
-		},
-	}
-})
+  	methods: {
+  		scroll(id){
+  			document.getElementById(id).scrollIntoView({
+  			  behavior: 'smooth'
+  			})
+  		},
+  	}
+  })
 </script>
 </body>
 </html>
 
 <style>
-.abstract-1 {
-    position: absolute!important;
-    left: -48px;
-    top: -48px;
-    z-index: 0!important;
-}
-.abstract-1~* {
-    z-index: 1!important;
-}
+  .primary--text {
+	   color: #ffaa00 !important;
+	   caret-color: #ffaa00 !important;
+  }
+  .primary {
+	   background-color: #ffaa00 !important;
+	   border-color: #ffaa00 !important;
+   }
+  .abstract-1 {
+      position: absolute!important;
+      left: -48px;
+      top: -48px;
+      z-index: 0!important;
+  }
+  .abstract-1~* {
+      z-index: 1!important;
+  }
 
-.abstract-2 {
-    position: absolute!important;
-    right: 0;
-    top: -128px;
-    z-index: 0!important;
-}
-.abstract-2~* {
-    z-index: 1!important;
-}
+  .abstract-2 {
+      position: absolute!important;
+      right: 0;
+      top: -128px;
+      z-index: 0!important;
+  }
+  .abstract-2~* {
+      z-index: 1!important;
+  }
 
-.abstract-3 {
-    position: absolute!important;
-    left: 0;
-    right: 0;
-    z-index: 0!important;
-}
-.abstract-3~* {
-    z-index: 1!important;
-}
+  .abstract-3 {
+      position: absolute!important;
+      left: 0;
+      right: 0;
+      z-index: 0!important;
+  }
+  .abstract-3~* {
+      z-index: 1!important;
+  }
 </style>
