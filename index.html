@@ -51,17 +51,21 @@
   	  	  	<v-img 
   	  	  	height="100vh"
   	  	  	src="assets/hero.png">
-  	  	  	  <v-layout fill-height justify-end align-end class="text-sm-right pa-5">
+  	  	  	  <v-layout fill-height align-end text-xs-right class="pa-3" >
   	  	  	    <div>
-  	  	  	      <div class="display-3 text-uppercase">{{ developer.name }}</div>
-  	  	  	      <h1 class="primary--text text-uppercase display-4">
+  	  	  	      <div class=" text-uppercase" :class=" this.$vuetify.breakpoint.name == 'xs' ? 'display-1' : 'display-3' ">{{ developer.name }}</div>
+  	  	  	      <h1 class="primary--text text-uppercase display-4"
+  	  	  	      :class=" this.$vuetify.breakpoint.name == 'xs' ? 'display-2' : 'display-4' ">
                     {{ developer.specialist }}   
                   </h1>
   	  	  	    </div>
   	  	  	  </v-layout>
   	  	  	</v-img>
   	  	  	<v-container fluid class="py-5 px-0">
-  	  	  	  <section id="about-me" class="layout pa-5 wrap" style="position: relative;">
+  	  	  	  <section id="about-me"
+  	  	  	  class="layout  wrap"
+  	  	  	  :class=" this.$vuetify.breakpoint.name == 'xs' ? 'pa-3' : 'pa-5' "
+  	  	  	  style="position: relative;">
   	  	  	  	<v-img src="assets/abstract1.png" class="abstract-1" style="height: 528px; width: 613px;"></v-img>
   	  	  	  	<v-flex xs12 md7>
   	  	  	  	  <section>
@@ -121,7 +125,10 @@
   	  	  	  	  </span>
   	  	  	  	</v-flex>
   	  	  	  </section>
-  	  	  	  <section id="skills" class="layout pa-5 wrap justify-space-around" style="position: relative;">
+  	  	  	  <section id="skills" 
+  	  	  	  class="layout wrap justify-space-around" 
+  	  	  	  :class=" this.$vuetify.breakpoint.name == 'xs' ? 'pa-3' : 'pa-5' "
+  	  	  	  style="position: relative;">
   	  	  	  	<v-img src="assets/abstract2.png" class="abstract-2" style="height: 711px; width: 778px;"></v-img>
   	  	  	  	<v-flex xs12 class="mb-5 position">
   	  	  	  	  <v-layout justify-space-between>
@@ -243,7 +250,8 @@
   	  	  	  </section>
   	  	  	  <section 
   	  	  	  id="portfolio" 
-  	  	  	  class="layout pa-5 wrap" 
+  	  	  	  class="layout wrap" 
+  	  	  	  :class=" this.$vuetify.breakpoint.name == 'xs' ? 'pa-3' : 'pa-5' "
   	  	  	  style="position: relative;">
   	  	  	  	<v-img 
   	  	  	  	class="abstract-3" 
@@ -257,7 +265,7 @@
   	  	  	  	class="elevation-0" 
   	  	  	  	style="height: 600px">
   	  	  	  	  <v-carousel-item>
-  	  	  	  	  	<v-sheet class="transparent pa-5" style="height: 100%;">
+  	  	  	  	  	<v-sheet class="transparent pa-3" style="height: 100%;">
   	  	  	  	  	  <div class="text-xs-center mb-5">
   	  	  	  	  	  	<h2 class="primary--text title font-weight-light mb-1">
   	  	  	  	  	  	  {{ item.name }}
@@ -271,7 +279,7 @@
   	  	  	  	  	      	  Project Details
   	  	  	  	  	      	</h2>
   	  	  	  	  	      	<div class="subheading mb-5">
-        					           {{ item.detail }}
+        					   {{ item.detail }}
   	  	  	  	  	      	</div>
   	  	  	  	  	      	<h2 class="primary--text title font-weight-light">
   	  	  	  	  	      	  Project Info
@@ -440,7 +448,7 @@
   			  behavior: 'smooth'
   			})
   		},
-  	}
+  	},
   })
 </script>
 </body>
