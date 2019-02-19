@@ -20,7 +20,7 @@
   	      	<v-btn @click="scroll('about-me')" class="text-capitalize subheading font-weight-light" flat>About Me</v-btn>
   	      </div>
   	      <div class="ma-2">
-  	      	<v-btn @click="scroll('experience')" class="text-capitalize subheading font-weight-light" flat>Experience</v-btn>
+  	      	<v-btn @click="smile" class="text-capitalize subheading font-weight-light" flat>Experience</v-btn>
   	      </div>
   	      <div class="ma-2">
   	      	<v-btn @click="scroll('skills')" class="text-capitalize subheading font-weight-light" flat>Skills & Education</v-btn>
@@ -73,9 +73,7 @@
   	  	  	  	  	<v-layout justify-space-between wrap>
   	  	  	  	  	  <v-flex xs12 md7>
   	  	  	  	  	    <div class="subheading mb-5 mb-0">
-  	  	  	  	  	      <p>
-  	  	  	  	  	      	{{ developer.bio }}
-  	  	  	  	  	      </p>
+  	  	  	  	  	      <p v-html="developer.bio"></p>
   	  	  	  	  	      <div>
   	  	  	  	  	      	
   	  	  	  	  	      </div>
@@ -140,7 +138,7 @@
   	  	  	  	      	{{ developer.shortBio }}
   	  	  	  	      </p>
   	  	  	  	      <footer class="text-xs-center">
-  	  	  	  	        <v-btn dark color="primary">DOWNLOAD CV</v-btn>
+  	  	  	  	        <v-btn dark color="primary" href="https://www.kariyer.net/3b0da720-fac2-4556-8848-f6d23b42e7e7">DOWNLOAD CV</v-btn>
   	  	  	  	      </footer>
   	  	  	  	    </blockquote>
   	  	  	  	  </v-layout>
@@ -172,7 +170,7 @@
   	  	  	  	    My Skills
   	  	  	  	  </h3>
   	  	  	  	  <div class="mb-4">
-  	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Graphics/Media</h4>
+  	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Front-end</h4>
   	  	  	  	  	<div class="pl-4">
   	  	  	  	  	  <v-layout 
   	  	  	  	  	  v-for="(item, i) in skills"
@@ -197,7 +195,7 @@
   	  	  	  	  	</div>
   	  	  	  	  </div>
   	  	  	  	  <div class="mb-4">
-  	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Programming</h4>
+  	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Back-end</h4>
   	  	  	  	  	<div class="pl-4">
   	  	  	  	  	  <v-layout 
   	  	  	  	  	  v-for="(item, i) in skills_1"
@@ -222,7 +220,7 @@
   	  	  	  	  	</div>
   	  	  	  	  </div>
   	  	  	  	  <div class="mb-4">
-  	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Other</h4>
+  	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Database</h4>
   	  	  	  	  	<div class="pl-4">
   	  	  	  	  	  <v-layout
   	  	  	  	  	  v-for="(item, i) in skills_2"
@@ -236,6 +234,31 @@
   	  	  	  	  	      <v-rating
   	  	  	  	  	      dense
           				  :length="len"
+                          v-model="item.knowledge">
+  					      	<v-icon
+  					      	slot="item"
+  					      	slot-scope="props"
+  					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
+  					      </v-rating>
+  	  	  	  	  	    </v-flex>
+  	  	  	  	  	  </v-layout>
+  	  	  	  	  	</div>
+  	  	  	  	  </div>
+  	  	  	  	  <div class="mb-4">
+  	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Tools</h4>
+  	  	  	  	  	<div class="pl-4">
+  	  	  	  	  	  <v-layout 
+  	  	  	  	  	  v-for="(item, i) in tools"
+  	  	  	  	  	  :key="i"
+  	  	  	  	  	  align-center 
+  	  	  	  	  	  class="mb-2">
+  	  	  	  	  	    <v-flex xs5>
+  	  	  	  	  	      <h5 class="subheading">{{ item.language }}</h5>
+  	  	  	  	  	    </v-flex>
+  	  	  	  	  	    <v-flex xs7>
+  	  	  	  	  	      <v-rating
+  	  	  	  	  	      dense
+  	  	  	  	  	      :length="len"
                           v-model="item.knowledge">
   					      	<v-icon
   					      	slot="item"
@@ -332,9 +355,9 @@
   	  	rating: 4,
   	  	len: 5,
         developer: {
-          name: "Emirhan Ataman",
+          name: "John Smith",
           specialist: "Back-end Developer",
-          bio: "I am front-end developer that specializes in Vue and Veutify development. Consectetur adipisicing elit, sed do eiusmod tempor. Quisque viverra quam urna, ac commodo augue convallis et. In vel nisl imperdiet, cursus elit ac, efficitur sem. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum.",
+          bio: `Sed molestie venenatis elit, ac ultricies mi sagittis non. Proin hendrerit urna lacus, sed cursus risus blandit eget. Cras consectetur, lacus in auctor ultricies, dolor mi pretium felis, non eleifend enim erat at quam. Aliquam placerat dolor id urna aliquam, ac maximus arcu bibendum. `,
           shortBio: "I'm self-taught, self-motivated programmer. I've been contributioning my own clone-like projects.",
           location: "Turkey",
           phone: "(90) 532 321 3232",
@@ -343,87 +366,117 @@
         },
   	  	education: [
   	  		{
-  		  		school: "State Univeristy",
-  		  		degree: "Bachelor of Computer Science",
-  		  		program: "Computer Science",
-  		  		year: "2013-2017"
+  		  		school: "Some of Univeristy",
+  		  		degree: "Associate Degree",
+  		  		program: "Computer Programming",
+  		  		year: "2018-2020"
   		  	},
   		  	{
-  		  		school: "State Univeristy",
-  		  		degree: "Bachelor of Computer Science",
-  		  		program: "Computer Science",
-  		  		year: "2013-2017"
+  		  		school: "Other High School",
+  		  		degree: "Graduate From High School",
+  		  		program: "Database Programmer",
+  		  		year: "2014-2018"
   		  	},
-  		  	{
-  		  		school: "Community College",
-  		  		degree: "Community College",
-  		  		program: "Community College",
-  		  		year: "2012-2013"
-  		  	},
-  		  	{
-  		  		school: "Community College",
-  		  		degree: "Associate of Science",
-  		  		program: "Graphic Design",
-  		  		year: "2010-2012"
-  		  	},
+          {
+            school: "Codecademy",
+            degree: "Founder",
+            program: "Advanced Game Programming",
+            year: "2022-2030"
+          },
   	  	],
   	  	skills: [
   	  		{
-  	  			software: "Photoshop",
+  	  			software: "Vue.js",
   	  			knowledge: 4
   	  		},
   	  		{
-  	  			software: "Illustrator",
+  	  			software: "Vuetify.js",
   	  			knowledge: 4
   	  		},
   	  		{
-  	  			software: "Fireworks",
+  	  			software: "Bootstrap",
   	  			knowledge: 4
   	  		},
   	  		{
-  	  			software: "InDesign",
-  	  			knowledge: 4
-  	  		},
-  	  		{
-  	  			software: "Effects",
+  	  			software: "HTML5/CSS3" ,
   	  			knowledge: 4
   	  		},
   	  	],
 
   	  	skills_1: [
+          {
+            language: "C++" ,
+            knowledge: 5
+          },
   	  		{
   	  			language: "Javascript" ,
   	  			knowledge: 4
   	  		},
   	  		{
-  	  			language: "PHP/MYSQL" ,
+  	  			language: "Node.js" ,
+  	  			knowledge: 3
+  	  		},
+  	  		{
+  	  			language: "Feathers.js" ,
+  	  			knowledge: 3
+  	  		},
+  	  		{
+  	  			language: "PHP" ,
   	  			knowledge: 4
   	  		},
   	  		{
-  	  			language: "jQuery" ,
+  	  			language: "Laravel" ,
   	  			knowledge: 4
   	  		},
+  	  		
   	  		{
-  	  			language: "HTML5/CSS3" ,
-  	  			knowledge: 4
+  	  			language: "C#.Net" ,
+  	  			knowledge: 3
+  	  		},
+  	  		{
+  	  			language: "C" ,
+  	  			knowledge: 2
   	  		},
   	  	],
 
   	  	skills_2: [
   	  		{
-  	  			name: "Graphic Design",
+  	  			name: "MSSQL",
   	  			knowledge: 4,
   	  		},
   	  		{
-  	  			name: "Marketing",
+  	  			name: "MySQL",
   	  			knowledge: 4,
   	  		},
   	  		{
-  	  			name: "Web Design",
+  	  			name: "MongoDB",
+  	  			knowledge: 3,
+  	  		},
+  	  		{
+  	  			name: "Redis",
+  	  			knowledge: 3,
+  	  		},
+  	  		
+  	  	],
+  	  	tools: [
+  	  		{
+  	  			language: "NW.js",
   	  			knowledge: 4,
   	  		},
   	  		{
-  	  			name: "Logo Design",
+  	  			language: "Vuex" ,
+  	  			knowledge: 3
+  	  		},
+  	  		{
+  	  			language: "Axios" ,
+  	  			knowledge: 4
+  	  		},
+  	  		{
+  	  			language: "GraphQL",
+  	  			knowledge: 3,
+  	  		},
+  	  		{
+  	  			language: "Git",
   	  			knowledge: 4,
   	  		},
   	  	],
@@ -448,6 +501,9 @@
   			  behavior: 'smooth'
   			})
   		},
+  		smile(){
+  			alert("I've no job experience but you might be the first one ;)")
+  		}
   	},
   })
 </script>
