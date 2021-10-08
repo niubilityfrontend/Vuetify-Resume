@@ -1,551 +1,473 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-	<link rel="stylesheet" type="text/css" href="https://cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css">
-</head>
-<body>
+  <head>
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet" /> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet" /> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" /> -->
+  </head>
 
-  <div id="app">
-  	<v-app dark>
-  	  <v-navigation-drawer fixed app>
-  	    <v-layout justify-center align-center wrap column>
-  	      <h2 class="display-3 mt-4 primary--text font-weight-bold ">JS</h2>
-  	      <h1 class="display-1 ma-2">{{ developer.name }}</h1>
-  	      <span class="display-1 mb-5 font-weight-light title">{{ developer.specialist }}</span>
-  	      <div class="ma-2">
-  	      	<v-btn @click="scroll('about-me')" class="text-capitalize subheading font-weight-light" flat>About Me</v-btn>
-  	      </div>
-  	      <div class="ma-2">
-  	      	<v-btn @click="smile" class="text-capitalize subheading font-weight-light" flat>Experience</v-btn>
-  	      </div>
-  	      <div class="ma-2">
-  	      	<v-btn @click="scroll('skills')" class="text-capitalize subheading font-weight-light" flat>Skills & Education</v-btn>
-  	      </div>
-  	      <div class="ma-2">
-  	      	<v-btn @click="scroll('portfolio')" class="text-capitalize subheading font-weight-light" flat>Portfolio</v-btn>
-  	      </div>
-  	      <div class="ma-2">
-  	      	<v-btn @click="scroll('about-me')" class="text-capitalize subheading font-weight-light" flat>Contact</v-btn>
-  	      </div>
-  	      <div class="mt-auto">
-  	      	<div class="my-4">
-  	      	  <v-btn icon href="https://github.com/ashkan90">
-  	      	  	<v-icon>mdi mdi-github-box</v-icon>
-  	      	  </v-btn>
-  	      	  <v-btn icon href="https://www.linkedin.com/in/emirhan-ataman-7b4877166/">
-  	      	  	<v-icon>mdi mdi-linkedin-box</v-icon>
-  	      	  </v-btn>
-  	      	</div>
-  	      </div>
-  	    </v-layout>
-  	  </v-navigation-drawer>
+  <body>
+    <div id="app">
+      <v-app dark>
+        <v-navigation-drawer fixed app>
+          <v-layout justify-center align-center wrap column>
+            <h2 class="display-3 mt-4 primary--text font-weight-bold">JS</h2>
+            <h1 class="display-1 ma-2">{{ developer.name }}</h1>
+            <span class="display-1 mb-5 font-weight-light title">{{ developer.specialist }}</span>
+            <div class="ma-2">
+              <v-btn @click="scroll('about-me')" class="text-capitalize subheading font-weight-light" text>About Me</v-btn>
+            </div>
+            <div class="ma-2">
+              <v-btn @click="smile" class="text-capitalize subheading font-weight-light" text>Experience</v-btn>
+            </div>
+            <div class="ma-2">
+              <v-btn @click="scroll('skills')" class="text-capitalize subheading font-weight-light" text>Skills & Education</v-btn>
+            </div>
+            <div class="ma-2">
+              <v-btn @click="scroll('portfolio')" class="text-capitalize subheading font-weight-light" text>Portfolio</v-btn>
+            </div>
+            <div class="ma-2">
+              <v-btn @click="scroll('about-me')" class="text-capitalize subheading font-weight-light" text>Contact</v-btn>
+            </div>
+            <div class="mt-auto">
+              <div class="my-4">
+                <v-btn icon href="https://github.com/ashkan90">
+                  <v-icon>mdi mdi-github-box</v-icon>
+                </v-btn>
+                <v-btn icon href="https://www.linkedin.com/in/emirhan-ataman-7b4877166/">
+                  <v-icon>mdi mdi-linkedin-box</v-icon>
+                </v-btn>
+              </div>
+            </div>
+          </v-layout>
+        </v-navigation-drawer>
 
+        <v-main class="hide-overflow">
+          <div>
+            <v-img height="100vh" src="assets/hero.png">
+              <v-layout fill-height align-end text-xs-right class="pa-3">
+                <div>
+                  <div class="text-uppercase" :class=" this.$vuetify.breakpoint.name == 'xs' ? 'display-1' : 'display-3' ">{{ developer.name }}</div>
+                  <h1 class="primary--text text-uppercase display-4" :class=" this.$vuetify.breakpoint.name == 'xs' ? 'display-2' : 'display-4' ">{{ developer.specialist }}</h1>
+                </div>
+              </v-layout>
+            </v-img>
+            <v-container fluid class="py-5 px-0">
+              <section id="about-me" class="layout wrap" :class=" this.$vuetify.breakpoint.name == 'xs' ? 'pa-3' : 'pa-5' " style="position: relative">
+                <v-img src="assets/abstract1.png" class="abstract-1" style="height: 528px; width: 613px"></v-img>
+                <v-flex xs12 md7>
+                  <section>
+                    <h2 class="display-2 font-weight-bold primary--text mb-4">Who I am.</h2>
+                    <v-layout justify-space-between wrap>
+                      <v-flex xs12 md7>
+                        <div class="subheading mb-5 mb-0">
+                          <p v-html="developer.bio"></p>
+                          <div></div>
+                        </div>
+                      </v-flex>
+                      <v-flex xs12 md4 class="mb-5">
+                        <v-layout align-center>
+                          <v-flex xs6 class="text-uppercase primary--text font-weight-medium">
+                            <div class="mb-3">Location</div>
+                            <div class="mb-3">Email</div>
+                            <div class="mb-3">Phone</div>
+                            <div>Discord</div>
+                          </v-flex>
+                          <v-flex xs6 class="subheading no-wrap">
+                            <div class="mb-3">{{ developer.location }}</div>
+                            <div class="mb-3">{{ developer.mail }}</div>
+                            <div class="mb-3">{{ developer.phone }}</div>
+                            <div>{{ developer.discord }}</div>
+                          </v-flex>
+                        </v-layout>
+                      </v-flex>
+                    </v-layout>
+                  </section>
+                  <section>
+                    <h2 class="display-2 font-weight-bold primary--text mb-4">What I can do for you.</h2>
+                    <v-expansion-panels>
+                      <v-expansion-panel popout>
+                        <v-expansion-panel-content class="transparent" v-for="(item, i) in 4" :key="i">
+                          <div class="font-weight-light title" slot="header">Item</div>
+                          <v-card class="">
+                            <v-card-text>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </v-card-text>
+                          </v-card>
+                        </v-expansion-panel-content>
+                      </v-expansion-panel>
+                    </v-expansion-panels>
+                  </section>
+                </v-flex>
+                <v-flex md5 class="hidden-sm-and-down text-xs-right text-uppercase">
+                  <div class="display-1">{{ developer.specialist }}</div>
+                  <span class="primary--text headline font-weight-light">{{ developer.name }}</span>
+                </v-flex>
+              </section>
+              <section id="skills" class="layout wrap justify-space-around" :class=" this.$vuetify.breakpoint.name == 'xs' ? 'pa-3' : 'pa-5' " style="position: relative">
+                <v-img src="assets/abstract2.png" class="abstract-2" style="height: 711px; width: 778px"></v-img>
+                <v-flex xs12 class="mb-5 position">
+                  <v-layout justify-space-between>
+                    <h2 class="display-2 font-weight-bold primary--text mb-4">What I know.</h2>
+                    <blockquote style="max-width: 230px">
+                      <p class="subheading font-weight-light font-italic">{{ developer.shortBio }}</p>
+                      <footer class="text-xs-center">
+                        <v-btn dark color="primary" href="https://www.kariyer.net/3b0da720-fac2-4556-8848-f6d23b42e7e7">DOWNLOAD CV</v-btn>
+                      </footer>
+                    </blockquote>
+                  </v-layout>
+                </v-flex>
+                <v-flex xs12 md3>
+                  <h3 class="headline font-weigth-medium mb-4 primary--text">My Education</h3>
+                  <v-sheet class="mb-5 transparent" v-for="(item, i) in education" :key="i">
+                    <v-layout>
+                      <div class="mr-3 v-sheet v-sheet--tile theme--dark primary" style="height: 100px; width: 1px"></div>
+                      <v-flex>
+                        <div class="mb-3">{{ item.school }}</div>
+                        <div class="text-xs-right">
+                          <span class="title primary--text">{{ item.degree }}</span>
+                          <footer>
+                            <div>{{ item.program }}</div>
+                            <div>{{ item.year }}</div>
+                          </footer>
+                        </div>
+                      </v-flex>
+                    </v-layout>
+                  </v-sheet>
+                </v-flex>
+                <v-flex xs12 md4>
+                  <h3 class="headline font-weigth-medium mb-4 primary--text">My Skills</h3>
+                  <div class="mb-4">
+                    <h4 class="text-uppercase mb-3 primary--text">Front-end</h4>
+                    <div class="pl-4">
+                      <v-layout v-for="(item, i) in skills" :key="i" align-center class="mb-2">
+                        <v-flex xs5>
+                          <h5 class="subheading">{{ item.software }}</h5>
+                        </v-flex>
+                        <v-flex xs7>
+                          <v-rating dense :length="len" v-model="item.knowledge">
+                            <v-icon slot="item" slot-scope="props" :color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
+                          </v-rating>
+                        </v-flex>
+                      </v-layout>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <h4 class="text-uppercase mb-3 primary--text">Back-end</h4>
+                    <div class="pl-4">
+                      <v-layout v-for="(item, i) in skills_1" :key="i" align-center class="mb-2">
+                        <v-flex xs5>
+                          <h5 class="subheading">{{ item.language }}</h5>
+                        </v-flex>
+                        <v-flex xs7>
+                          <v-rating dense :length="len" v-model="item.knowledge">
+                            <v-icon slot="item" slot-scope="props" :color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
+                          </v-rating>
+                        </v-flex>
+                      </v-layout>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <h4 class="text-uppercase mb-3 primary--text">Database</h4>
+                    <div class="pl-4">
+                      <v-layout v-for="(item, i) in skills_2" :key="i" align-center class="mb-2">
+                        <v-flex xs5>
+                          <h5 class="subheading">{{ item.name }}</h5>
+                        </v-flex>
+                        <v-flex xs7>
+                          <v-rating dense :length="len" v-model="item.knowledge">
+                            <v-icon slot="item" slot-scope="props" :color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
+                          </v-rating>
+                        </v-flex>
+                      </v-layout>
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <h4 class="text-uppercase mb-3 primary--text">Tools</h4>
+                    <div class="pl-4">
+                      <v-layout v-for="(item, i) in tools" :key="i" align-center class="mb-2">
+                        <v-flex xs5>
+                          <h5 class="subheading">{{ item.language }}</h5>
+                        </v-flex>
+                        <v-flex xs7>
+                          <v-rating dense :length="len" v-model="item.knowledge">
+                            <v-icon slot="item" slot-scope="props" :color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
+                          </v-rating>
+                        </v-flex>
+                      </v-layout>
+                    </div>
+                  </div>
+                </v-flex>
+              </section>
+              <section id="portfolio" class="layout wrap" :class=" this.$vuetify.breakpoint.name == 'xs' ? 'pa-3' : 'pa-5' " style="position: relative">
+                <v-img class="abstract-3" style="height: 100%; width: 100%" src="assets/abstract3.png"></v-img>
+                <h2 class="display-2 font-weight-bold primary--text mb-4">What I've done</h2>
+                <v-carousel v-for="(item, i) in projects" :key="i" :show-arrows="false" class="elevation-0" style="height: 600px">
+                  <v-carousel-item>
+                    <v-sheet class="transparent pa-3" style="height: 100%">
+                      <div class="text-xs-center mb-5">
+                        <h2 class="primary--text title font-weight-light mb-1">{{ item.name }}</h2>
+                        <span class="subheading">{{ item.category }}</span>
+                      </div>
+                      <v-layout wrap>
+                        <v-flex shrink>
+                          <div class="mb-3" style="max-width: 600px">
+                            <h2 class="primary--text title font-weight-light mb-3">Project Details</h2>
+                            <div class="subheading mb-5">{{ item.detail }}</div>
+                            <h2 class="primary--text title font-weight-light">Project Info</h2>
+                            <v-list class="transparent">
+                              <v-list-item>
+                                <v-list-item-action>
+                                  <v-icon>person</v-icon>
+                                </v-list-item-action>
+                                <v-list-item-title class="mr-2">Client Name</v-list-item-title>
+                                <v-list-item-subtitle class="hidden-sm-and-down">{{ item.clients }}</v-list-item-subtitle>
+                              </v-list-item>
 
+                              <v-list-item>
+                                <v-list-item-action>
+                                  <v-icon>calendar_today</v-icon>
+                                </v-list-item-action>
+                                <v-list-item-title class="mr-2">Project Dates</v-list-item-title>
+                                <v-list-item-subtitle class="hidden-sm-and-down">{{ item.date }}</v-list-item-subtitle>
+                              </v-list-item>
 
-  	  	<v-content class="hide-overflow">
-  	  	  <div>
-  	  	  	<v-img 
-  	  	  	height="100vh"
-  	  	  	src="assets/hero.png">
-  	  	  	  <v-layout fill-height align-end text-xs-right class="pa-3" >
-  	  	  	    <div>
-  	  	  	      <div class=" text-uppercase" :class=" this.$vuetify.breakpoint.name == 'xs' ? 'display-1' : 'display-3' ">{{ developer.name }}</div>
-  	  	  	      <h1 class="primary--text text-uppercase display-4"
-  	  	  	      :class=" this.$vuetify.breakpoint.name == 'xs' ? 'display-2' : 'display-4' ">
-                    {{ developer.specialist }}   
-                  </h1>
-  	  	  	    </div>
-  	  	  	  </v-layout>
-  	  	  	</v-img>
-  	  	  	<v-container fluid class="py-5 px-0">
-  	  	  	  <section id="about-me"
-  	  	  	  class="layout  wrap"
-  	  	  	  :class=" this.$vuetify.breakpoint.name == 'xs' ? 'pa-3' : 'pa-5' "
-  	  	  	  style="position: relative;">
-  	  	  	  	<v-img src="assets/abstract1.png" class="abstract-1" style="height: 528px; width: 613px;"></v-img>
-  	  	  	  	<v-flex xs12 md7>
-  	  	  	  	  <section>
-  	  	  	  	  	<h2 class="display-2 font-weight-bold primary--text mb-4">Who I am.</h2>
-  	  	  	  	  	<v-layout justify-space-between wrap>
-  	  	  	  	  	  <v-flex xs12 md7>
-  	  	  	  	  	    <div class="subheading mb-5 mb-0">
-  	  	  	  	  	      <p v-html="developer.bio"></p>
-  	  	  	  	  	      <div>
-  	  	  	  	  	      	
-  	  	  	  	  	      </div>
-  	  	  	  	  	    </div>
-  	  	  	  	  	  </v-flex>	
-  	  	  	  	  	  <v-flex xs12 md4 class="mb-5">
-  	  	  	  	  	    <v-layout align-center>
-  	  	  	  	  	      <v-flex xs6 class="text-uppercase primary--text font-weight-medium">
-  	  	  	  	  	        <div class="mb-3">Location</div>
-  	  	  	  	  	        <div class="mb-3">Email</div>
-  	  	  	  	  	        <div class="mb-3">Phone</div>
-  	  	  	  	  	        <div>Discord</div>
-  	  	  	  	  	      </v-flex>
-  	  	  	  	  	      <v-flex xs6 class="subheading no-wrap">
-  	  	  	  	  	        <div class="mb-3">{{ developer.location }}</div>
-  	  	  	  	  	        <div class="mb-3">{{ developer.mail }}</div>
-  	  	  	  	  	        <div class="mb-3">{{ developer.phone }}</div>
-  	  	  	  	  	        <div>{{ developer.discord }}</div>
-  	  	  	  	  	      </v-flex>
-  	  	  	  	  	    </v-layout>
-  	  	  	  	  	  </v-flex>
-  	  	  	  	  	</v-layout>
-  	  	  	  	  </section>
-  	  	  	  	  <section>
-  	  	  	  	  	<h2 class="display-2 font-weight-bold primary--text mb-4">
-  	  	  	  	  	  What I can do for you.
-  	  	  	  	  	</h2>
-  	  	  	  	  	<v-expansion-panel popout>
-  	  	  	  	  	  <v-expansion-panel-content
-  	  	  	  	  	  class="transparent"
-  	  	  	  	  	  v-for="(item, i) in 4"
-  	  	  	  	  	  :key="i">
-  	  	  	  	  	    <div class="font-weight-light title" slot="header">Item</div>
-  	  	  	  	  	    <v-card class="">
-  	  	  	  	  	      <v-card-text>
-  	  	  	  	  	        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  	  	  	  	  	      </v-card-text>
-  	  	  	  	  	    </v-card>
-  	  	  	  	  	  </v-expansion-panel-content>
-  	  	  	  	  	</v-expansion-panel>
-  	  	  	  	  </section>
-  	  	  	  	</v-flex>
-  	  	  	  	<v-flex md5 class="hidden-sm-and-down text-xs-right text-uppercase">
-  	  	  	  	  <div class="display-1">{{ developer.specialist }}</div>
-  	  	  	  	  <span class="primary--text headline font-weight-light">
-  	  	  	  	  	{{ developer.name }}
-  	  	  	  	  </span>
-  	  	  	  	</v-flex>
-  	  	  	  </section>
-  	  	  	  <section id="skills" 
-  	  	  	  class="layout wrap justify-space-around" 
-  	  	  	  :class=" this.$vuetify.breakpoint.name == 'xs' ? 'pa-3' : 'pa-5' "
-  	  	  	  style="position: relative;">
-  	  	  	  	<v-img src="assets/abstract2.png" class="abstract-2" style="height: 711px; width: 778px;"></v-img>
-  	  	  	  	<v-flex xs12 class="mb-5 position">
-  	  	  	  	  <v-layout justify-space-between>
-  	  	  	  	    <h2 class="display-2 font-weight-bold primary--text mb-4">
-  	  	  	  	      What I know.
-  	  	  	  	    </h2>
-  	  	  	  	    <blockquote style="max-width: 230px;">
-  	  	  	  	      <p class="subheading font-weight-light font-italic">
-  	  	  	  	      	{{ developer.shortBio }}
-  	  	  	  	      </p>
-  	  	  	  	      <footer class="text-xs-center">
-  	  	  	  	        <v-btn dark color="primary" href="https://www.kariyer.net/3b0da720-fac2-4556-8848-f6d23b42e7e7">DOWNLOAD CV</v-btn>
-  	  	  	  	      </footer>
-  	  	  	  	    </blockquote>
-  	  	  	  	  </v-layout>
-  	  	  	  	</v-flex>
-  	  	  	  	<v-flex xs12 md3>
-  	  	  	  	  <h3 class="headline font-weigth-medium mb-4 primary--text">
-  	  	  	  	    My Education
-  	  	  	  	  </h3>
-  	  	  	  	  <v-sheet class="mb-5 transparent" v-for="(item, i) in education" :key="i">
-  	  	  	  	    <v-layout>
-  	  	  	  	      <div 
-  	  	  	  	      class="mr-3 v-sheet v-sheet--tile theme--dark primary" 
-  	  	  	  	      style="height: 100px; width: 1px;"></div>
-  	  	  	  	      <v-flex>
-  	  	  	  	        <div class="mb-3">{{ item.school }}</div>
-  	  	  	  	        <div class="text-xs-right">
-  	  	  	  	          <span class="title primary--text">{{ item.degree }}</span>
-  	  	  	  	          <footer>
-  	  	  	  	          	<div>{{ item.program }}</div>
-  	  	  	  	          	<div>{{ item.year }}</div>
-  	  	  	  	          </footer>
-  	  	  	  	        </div>
-  	  	  	  	      </v-flex>
-  	  	  	  	    </v-layout>
-  	  	  	  	  </v-sheet>
-  	  	  	  	</v-flex>
-  	  	  	  	<v-flex xs12 md4>
-  	  	  	  	  <h3 class="headline font-weigth-medium mb-4 primary--text">
-  	  	  	  	    My Skills
-  	  	  	  	  </h3>
-  	  	  	  	  <div class="mb-4">
-  	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Front-end</h4>
-  	  	  	  	  	<div class="pl-4">
-  	  	  	  	  	  <v-layout 
-  	  	  	  	  	  v-for="(item, i) in skills"
-  	  	  	  	  	  :key="i"
-  	  	  	  	  	  align-center
-  	  	  	  	  	  class="mb-2">
-  	  	  	  	  	    <v-flex xs5>
-  	  	  	  	  	      <h5 class="subheading">{{ item.software }}</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs7>
-  	  	  	  	  	      <v-rating
-  	  	  	  	  	      dense
-  	  	  	  	  	      :length="len"
-                          v-model="item.knowledge">
-  					      	<v-icon
-  					      	slot="item"
-  					      	slot-scope="props"
-  					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-  					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	</div>
-  	  	  	  	  </div>
-  	  	  	  	  <div class="mb-4">
-  	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Back-end</h4>
-  	  	  	  	  	<div class="pl-4">
-  	  	  	  	  	  <v-layout 
-  	  	  	  	  	  v-for="(item, i) in skills_1"
-  	  	  	  	  	  :key="i"
-  	  	  	  	  	  align-center 
-  	  	  	  	  	  class="mb-2">
-  	  	  	  	  	    <v-flex xs5>
-  	  	  	  	  	      <h5 class="subheading">{{ item.language }}</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs7>
-  	  	  	  	  	      <v-rating
-  	  	  	  	  	      dense
-  	  	  	  	  	      :length="len"
-                          v-model="item.knowledge">
-  					      	<v-icon
-  					      	slot="item"
-  					      	slot-scope="props"
-  					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-  					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	</div>
-  	  	  	  	  </div>
-  	  	  	  	  <div class="mb-4">
-  	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Database</h4>
-  	  	  	  	  	<div class="pl-4">
-  	  	  	  	  	  <v-layout
-  	  	  	  	  	  v-for="(item, i) in skills_2"
-  	  	  	  	  	  :key="i" 
-  	  	  	  	  	  align-center 
-  	  	  	  	  	  class="mb-2">
-  	  	  	  	  	    <v-flex xs5>
-  	  	  	  	  	      <h5 class="subheading">{{ item.name }}</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs7>
-  	  	  	  	  	      <v-rating
-  	  	  	  	  	      dense
-          				  :length="len"
-                          v-model="item.knowledge">
-  					      	<v-icon
-  					      	slot="item"
-  					      	slot-scope="props"
-  					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-  					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	</div>
-  	  	  	  	  </div>
-  	  	  	  	  <div class="mb-4">
-  	  	  	  	  	<h4 class="text-uppercase mb-3 primary--text">Tools</h4>
-  	  	  	  	  	<div class="pl-4">
-  	  	  	  	  	  <v-layout 
-  	  	  	  	  	  v-for="(item, i) in tools"
-  	  	  	  	  	  :key="i"
-  	  	  	  	  	  align-center 
-  	  	  	  	  	  class="mb-2">
-  	  	  	  	  	    <v-flex xs5>
-  	  	  	  	  	      <h5 class="subheading">{{ item.language }}</h5>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	    <v-flex xs7>
-  	  	  	  	  	      <v-rating
-  	  	  	  	  	      dense
-  	  	  	  	  	      :length="len"
-                          v-model="item.knowledge">
-  					      	<v-icon
-  					      	slot="item"
-  					      	slot-scope="props"
-  					      	:color="props.isFilled ? 'primary' : 'black' ">fiber_manual_record</v-icon>
-  					      </v-rating>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	</div>
-  	  	  	  	  </div>
-  	  	  	  	</v-flex>
-  	  	  	  </section>
-  	  	  	  <section 
-  	  	  	  id="portfolio" 
-  	  	  	  class="layout wrap" 
-  	  	  	  :class=" this.$vuetify.breakpoint.name == 'xs' ? 'pa-3' : 'pa-5' "
-  	  	  	  style="position: relative;">
-  	  	  	  	<v-img 
-  	  	  	  	class="abstract-3" 
-  	  	  	  	style="height: 100%; width: 100%;" 
-  	  	  	  	src="assets/abstract3.png"></v-img>
-  	  	  	  	<h2 class="display-2 font-weight-bold primary--text mb-4">What I've done</h2>
-  	  	  	  	<v-carousel
-  	  	  	  	v-for="(item, i) in projects"
-  	  	  	  	:key="i"
-  	  	  	  	hide-controls 
-  	  	  	  	class="elevation-0" 
-  	  	  	  	style="height: 600px">
-  	  	  	  	  <v-carousel-item>
-  	  	  	  	  	<v-sheet class="transparent pa-3" style="height: 100%;">
-  	  	  	  	  	  <div class="text-xs-center mb-5">
-  	  	  	  	  	  	<h2 class="primary--text title font-weight-light mb-1">
-  	  	  	  	  	  	  {{ item.name }}
-  	  	  	  	  	  	</h2>
-  	  	  	  	  	  	<span class="subheading">{{ item.category }}</span>
-  	  	  	  	  	  </div>
-  	  	  	  	  	  <v-layout wrap>
-  	  	  	  	  	    <v-flex shrink>
-  	  	  	  	  	      <div class="mb-3" style="max-width: 600px">
-  	  	  	  	  	      	<h2 class="primary--text title font-weight-light mb-3">
-  	  	  	  	  	      	  Project Details
-  	  	  	  	  	      	</h2>
-  	  	  	  	  	      	<div class="subheading mb-5">
-        					   {{ item.detail }}
-  	  	  	  	  	      	</div>
-  	  	  	  	  	      	<h2 class="primary--text title font-weight-light">
-  	  	  	  	  	      	  Project Info
-  	  	  	  	  	      	</h2>
-  	  	  	  	  	      	<v-list class="transparent">
-  	  	  	  	  	      	  <v-list-tile>
-  	  	  	  	  	      	    <v-list-tile-action>
-  	  	  	  	  	      	      <v-icon>person</v-icon>
-  	  	  	  	  	      	    </v-list-tile-action>
-  	  	  	  	  	      	    <v-list-tile-title class="mr-2">Client Name</v-list-tile-title>
-  	  	  	  	  	      	    <v-list-tile-sub-title class="hidden-sm-and-down">{{ item.clients }}</v-list-tile-sub-title>
-  	  	  	  	  	      	  </v-list-tile>
+                              <v-list-item>
+                                <v-list-item-action>
+                                  <v-icon>style</v-icon>
+                                </v-list-item-action>
+                                <v-list-item-title class="mr-2">Project Category</v-list-item-title>
+                                <v-list-item-subtitle class="hidden-sm-and-down">{{ item.categories }}</v-list-item-subtitle>
+                              </v-list-item>
+                            </v-list>
+                          </div>
+                        </v-flex>
+                      </v-layout>
+                    </v-sheet>
+                  </v-carousel-item>
+                </v-carousel>
+              </section>
+            </v-container>
+          </div>
+        </v-main>
+      </v-app>
+    </div>
 
-  	  	  	  	  	      	  <v-list-tile>
-  	  	  	  	  	      	    <v-list-tile-action>
-  	  	  	  	  	      	      <v-icon>calendar_today</v-icon>
-  	  	  	  	  	      	    </v-list-tile-action>
-  	  	  	  	  	      	    <v-list-tile-title class="mr-2">Project Dates</v-list-tile-title>
-  	  	  	  	  	      	    <v-list-tile-sub-title class="hidden-sm-and-down">{{ item.date }}</v-list-tile-sub-title>
-  	  	  	  	  	      	  </v-list-tile>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script> -->
 
-  	  	  	  	  	      	  <v-list-tile>
-  	  	  	  	  	      	    <v-list-tile-action>
-  	  	  	  	  	      	      <v-icon>style</v-icon>
-  	  	  	  	  	      	    </v-list-tile-action>
-  	  	  	  	  	      	    <v-list-tile-title class="mr-2">Project Category</v-list-tile-title>
-  	  	  	  	  	      	    <v-list-tile-sub-title class="hidden-sm-and-down">{{ item.categories }}</v-list-tile-sub-title>
-  	  	  	  	  	      	  </v-list-tile>
-  	  	  	  	  	      	</v-list>
-  	  	  	  	  	      </div>
-  	  	  	  	  	    </v-flex>
-  	  	  	  	  	  </v-layout>
-  	  	  	  	  	</v-sheet>
-  	  	  	  	  </v-carousel-item>
-  	  	  	  	<v-carousel>
-  	  	  	  </section>
-  	  	  	</v-container>
-  	  	  </div>
-  	  	</v-content>
-  	</v-app>
-  </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            rating: 4,
+            len: 5,
+            developer: {
+              name: "John Smith",
+              specialist: "Back-end Developer",
+              bio: `Sed molestie venenatis elit, ac ultricies mi sagittis non. Proin hendrerit urna lacus, sed cursus risus blandit eget. Cras consectetur, lacus in auctor ultricies, dolor mi pretium felis, non eleifend enim erat at quam. Aliquam placerat dolor id urna aliquam, ac maximus arcu bibendum. `,
+              shortBio: "I'm self-taught, self-motivated programmer. I've been contributioning my own clone-like projects.",
+              location: "Turkey",
+              phone: "(90) 532 321 3232",
+              discord: "@OFFLINE GOD",
+              mail: "emirhan@ataman.com",
+            },
+            education: [
+              {
+                school: "Some of Univeristy",
+                degree: "Associate Degree",
+                program: "Computer Programming",
+                year: "2018-2020",
+              },
+              {
+                school: "Other High School",
+                degree: "Graduate From High School",
+                program: "Database Programmer",
+                year: "2014-2018",
+              },
+              {
+                school: "Codecademy",
+                degree: "Founder",
+                program: "Advanced Game Programming",
+                year: "2022-2030",
+              },
+            ],
+            skills: [
+              {
+                software: "Vue.js",
+                knowledge: 4,
+              },
+              {
+                software: "Vuetify.js",
+                knowledge: 4,
+              },
+              {
+                software: "Bootstrap",
+                knowledge: 4,
+              },
+              {
+                software: "HTML5/CSS3",
+                knowledge: 4,
+              },
+            ],
 
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
-<script>
-  new Vue({
-  	el: '#app',
-  	data(){
-  	  return {
-  	  	rating: 4,
-  	  	len: 5,
-        developer: {
-          name: "John Smith",
-          specialist: "Back-end Developer",
-          bio: `Sed molestie venenatis elit, ac ultricies mi sagittis non. Proin hendrerit urna lacus, sed cursus risus blandit eget. Cras consectetur, lacus in auctor ultricies, dolor mi pretium felis, non eleifend enim erat at quam. Aliquam placerat dolor id urna aliquam, ac maximus arcu bibendum. `,
-          shortBio: "I'm self-taught, self-motivated programmer. I've been contributioning my own clone-like projects.",
-          location: "Turkey",
-          phone: "(90) 532 321 3232",
-          discord: "@OFFLINE GOD",
-          mail: "emirhan@ataman.com"
+            skills_1: [
+              {
+                language: "C++",
+                knowledge: 5,
+              },
+              {
+                language: "Javascript",
+                knowledge: 4,
+              },
+              {
+                language: "Node.js",
+                knowledge: 3,
+              },
+              {
+                language: "Feathers.js",
+                knowledge: 3,
+              },
+              {
+                language: "PHP",
+                knowledge: 4,
+              },
+              {
+                language: "Laravel",
+                knowledge: 4,
+              },
+
+              {
+                language: "C#.Net",
+                knowledge: 3,
+              },
+              {
+                language: "C",
+                knowledge: 2,
+              },
+            ],
+
+            skills_2: [
+              {
+                name: "MSSQL",
+                knowledge: 4,
+              },
+              {
+                name: "MySQL",
+                knowledge: 4,
+              },
+              {
+                name: "MongoDB",
+                knowledge: 3,
+              },
+              {
+                name: "Redis",
+                knowledge: 3,
+              },
+            ],
+            tools: [
+              {
+                language: "NW.js",
+                knowledge: 4,
+              },
+              {
+                language: "Vuex",
+                knowledge: 3,
+              },
+              {
+                language: "Axios",
+                knowledge: 4,
+              },
+              {
+                language: "GraphQL",
+                knowledge: 3,
+              },
+              {
+                language: "Git",
+                knowledge: 4,
+              },
+            ],
+
+            projects: [
+              {
+                name: "Classic Cafe Rebrand",
+                category: "Logo Design",
+                detail:
+                  "In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt",
+                clients: "the clients name",
+                date: "date, date",
+                categories: "category, category, category",
+              },
+            ],
+          };
         },
-  	  	education: [
-  	  		{
-  		  		school: "Some of Univeristy",
-  		  		degree: "Associate Degree",
-  		  		program: "Computer Programming",
-  		  		year: "2018-2020"
-  		  	},
-  		  	{
-  		  		school: "Other High School",
-  		  		degree: "Graduate From High School",
-  		  		program: "Database Programmer",
-  		  		year: "2014-2018"
-  		  	},
-          {
-            school: "Codecademy",
-            degree: "Founder",
-            program: "Advanced Game Programming",
-            year: "2022-2030"
+
+        methods: {
+          scroll(id) {
+            document.getElementById(id).scrollIntoView({
+              behavior: "smooth",
+            });
           },
-  	  	],
-  	  	skills: [
-  	  		{
-  	  			software: "Vue.js",
-  	  			knowledge: 4
-  	  		},
-  	  		{
-  	  			software: "Vuetify.js",
-  	  			knowledge: 4
-  	  		},
-  	  		{
-  	  			software: "Bootstrap",
-  	  			knowledge: 4
-  	  		},
-  	  		{
-  	  			software: "HTML5/CSS3" ,
-  	  			knowledge: 4
-  	  		},
-  	  	],
-
-  	  	skills_1: [
-          {
-            language: "C++" ,
-            knowledge: 5
+          smile() {
+            alert("I've no job experience but you might be the first one ;)");
           },
-  	  		{
-  	  			language: "Javascript" ,
-  	  			knowledge: 4
-  	  		},
-  	  		{
-  	  			language: "Node.js" ,
-  	  			knowledge: 3
-  	  		},
-  	  		{
-  	  			language: "Feathers.js" ,
-  	  			knowledge: 3
-  	  		},
-  	  		{
-  	  			language: "PHP" ,
-  	  			knowledge: 4
-  	  		},
-  	  		{
-  	  			language: "Laravel" ,
-  	  			knowledge: 4
-  	  		},
-  	  		
-  	  		{
-  	  			language: "C#.Net" ,
-  	  			knowledge: 3
-  	  		},
-  	  		{
-  	  			language: "C" ,
-  	  			knowledge: 2
-  	  		},
-  	  	],
-
-  	  	skills_2: [
-  	  		{
-  	  			name: "MSSQL",
-  	  			knowledge: 4,
-  	  		},
-  	  		{
-  	  			name: "MySQL",
-  	  			knowledge: 4,
-  	  		},
-  	  		{
-  	  			name: "MongoDB",
-  	  			knowledge: 3,
-  	  		},
-  	  		{
-  	  			name: "Redis",
-  	  			knowledge: 3,
-  	  		},
-  	  		
-  	  	],
-  	  	tools: [
-  	  		{
-  	  			language: "NW.js",
-  	  			knowledge: 4,
-  	  		},
-  	  		{
-  	  			language: "Vuex" ,
-  	  			knowledge: 3
-  	  		},
-  	  		{
-  	  			language: "Axios" ,
-  	  			knowledge: 4
-  	  		},
-  	  		{
-  	  			language: "GraphQL",
-  	  			knowledge: 3,
-  	  		},
-  	  		{
-  	  			language: "Git",
-  	  			knowledge: 4,
-  	  		},
-  	  	],
-
-  	  	projects: [
-  	  		{
-  	  			name: "Classic Cafe Rebrand",
-  	  			category: "Logo Design",
-  	  			detail: "In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ac felis quis tortor malesuada pretium. Phasellus dolor. Fusce fermentum odio nec arcu. Integer tincidunt",
-  	  			clients: "the clients name",
-  	  			date: "date, date",
-  	  			categories: "category, category, category"
-  	  		}
-  	  	]
-
-  	  }
-  	},
-
-  	methods: {
-  		scroll(id){
-  			document.getElementById(id).scrollIntoView({
-  			  behavior: 'smooth'
-  			})
-  		},
-  		smile(){
-  			alert("I've no job experience but you might be the first one ;)")
-  		}
-  	},
-  })
-</script>
-</body>
+        },
+        vuetify: new Vuetify(),
+      });
+    </script>
+  </body>
 </html>
 
 <style>
   .primary--text {
-	   color: #ffaa00 !important;
-	   caret-color: #ffaa00 !important;
+    color: #ffaa00 !important;
+    caret-color: #ffaa00 !important;
   }
+
   .primary {
-	   background-color: #ffaa00 !important;
-	   border-color: #ffaa00 !important;
-   }
-  .abstract-1 {
-      position: absolute!important;
-      left: -48px;
-      top: -48px;
-      z-index: 0!important;
+    background-color: #ffaa00 !important;
+    border-color: #ffaa00 !important;
   }
-  .abstract-1~* {
-      z-index: 1!important;
+
+  .abstract-1 {
+    position: absolute !important;
+    left: -48px;
+    top: -48px;
+    z-index: 0 !important;
+  }
+
+  .abstract-1 ~ * {
+    z-index: 1 !important;
   }
 
   .abstract-2 {
-      position: absolute!important;
-      right: 0;
-      top: -128px;
-      z-index: 0!important;
+    position: absolute !important;
+    right: 0;
+    top: -128px;
+    z-index: 0 !important;
   }
-  .abstract-2~* {
-      z-index: 1!important;
+
+  .abstract-2 ~ * {
+    z-index: 1 !important;
   }
 
   .abstract-3 {
-      position: absolute!important;
-      left: 0;
-      right: 0;
-      z-index: 0!important;
+    position: absolute !important;
+    left: 0;
+    right: 0;
+    z-index: 0 !important;
   }
-  .abstract-3~* {
-      z-index: 1!important;
+
+  .abstract-3 ~ * {
+    z-index: 1 !important;
   }
 </style>
